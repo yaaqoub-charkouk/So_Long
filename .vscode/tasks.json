@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Auto Commit Script",
+            "type": "shell",
+            "command": "/bin/bash",
+            "args": [
+                "/Users/ycharkou/auto_commit.sh",
+                "Auto-commit at ${date}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}
+
+
