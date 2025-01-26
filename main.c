@@ -1,44 +1,27 @@
-#include <mlx.h>
 #include "header.h"
 
-
-void mario_hook(int keycode, t_data *game)
+int	check_map_path(char *str)
 {
-    if (keycode == 53)
-        exit(0);
-    else if (keycode == KEY_UP)
-        game->mario_y -= 50;
-    else if (keycode == KEY_DOWN)
-        game->mario_y += 50;
-    else if (keycode == KEY_LEFT)
-        game->mario_x -= 50;
-    else if (keycode == KEY_RIGHT)
-        game->mario_x += 50;
-    mlx_clear_window(game->mlx, game->mlx_win);
-    mlx_put_image_to_window(game->mlx, game->mlx_win, game->img, 0, 0);
-    mlx_put_image_to_window(game->mlx, game->mlx_win, game->mario_img, game->mario_x, game->mario_y);
+	char **split;
+
+	if (ft_strchr(str, '/') < 0)
+	{
+		return (0);
+	}
+	split = ft_split(str, '/');
+	if (ft_strlen(split[2]) < 4)
+		return (0);
+	
 }
 
-int main(void)
+int	main(int ac, char **av)
 {
-    t_data game;
+	//check if the av is valid file
+	if (ac != 2)
+	{
+		ft_printf("invalid input : %s <map_path.ber> ", av[0]);
+		return (1);
+	}
+	check_map_path(av[1]);
 
-    game.mlx = mlx_init();
-    game.mlx_win = mlx_new_window(game.mlx, 1920, 1080, "Iy Tech");
-    game.img = mlx_xpm_file_to_image(game.mlx, "textures/background.xpm", &game.width, &game.height);
-    game.addr = mlx_get_data_addr(game.img, &game.bits_per_pixel, &game.line_length, &game.endian);
-    game.mario_img = mlx_xpm_file_to_image(game.mlx, "textures/mario_down.xpm", &game.mario_width, &game.mario_height);
-
-    mlx_put_image_to_window(game.mlx, game.mlx_win, game.img, 0, 0);
-    game.mario_x = 10;
-    game.mario_y = 10;
-    mlx_put_image_to_window(game.mlx, game.mlx_win, game.mario_img, game.mario_x, game.mario_y);
-
-    mlx_key_hook(game.mlx_win, mario_hook, &game);//list for signals
-
-    
-
-    mlx_loop(game.mlx);
-
-    return (0);
 }
