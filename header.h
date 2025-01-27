@@ -1,10 +1,11 @@
-#include <mlx.h>
+// #include <mlx.h>
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <fcntl.h>
 #include "libft/libft.h"
 #include "get_next_line/get_next_line.h"
-
+#include "ft_printf/ft_printf.h"
 
 typedef struct	s_data {
 	void	*mlx;
@@ -23,9 +24,17 @@ typedef struct	s_data {
 	int 	mario_height;
 } t_data;
 
+typedef struct	s_count
+{
+	int e_count;
+	int c_count;
+	int p_count;
+} t_count
+
+
 #define KEY_UP 126
 #define KEY_DOWN 125
 #define KEY_LEFT 123
 #define KEY_RIGHT 124
 
-
+int check_map_path(char *str);

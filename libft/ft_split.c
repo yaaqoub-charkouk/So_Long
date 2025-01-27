@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 15:15:37 by ycharkou          #+#    #+#             */
-/*   Updated: 2024/11/10 11:54:00 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:15:38 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-static void	*ft_free(char **strs, int count)
+void	*ft_free_matrix(char **strs, int count)
 {
 	int	i;
 
@@ -85,7 +85,7 @@ static char	**ft_split_words(const char *s, char c, char **buffer, size_t len)
 			{
 				buffer[j] = fill_word(s, start, i);
 				if (!buffer[j])
-					return (ft_free(buffer, j));
+					return (ft_free_matrix(buffer, j));
 				j++;
 			}
 		}

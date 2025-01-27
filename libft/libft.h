@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 10:16:13 by ycharkou          #+#    #+#             */
-/*   Updated: 2024/11/09 20:13:05 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/01/27 12:15:49 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrin(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+void	*ft_free_matrix(char **strs, int count);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
