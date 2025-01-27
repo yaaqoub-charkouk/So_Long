@@ -1,13 +1,13 @@
 #include "header.h"
 // validate_map_chars 
-void    ft_init_vars(t_count *count, int *i)
+static void    ft_init_vars(t_count *count, int *i)
 {
 	count->c_count = 0;
 	count->e_count = 0;
 	count->p_count = 0;
 	*i = 0;
 }
-void	map_chars_counter(char c, t_count *counter)
+static void	map_chars_counter(char c, t_count *counter)
 {
 	if (c == 'E')
 		counter->e_count++;

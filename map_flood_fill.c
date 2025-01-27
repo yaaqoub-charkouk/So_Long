@@ -3,7 +3,7 @@
 // check if all collectibles and the exit are reachable .
 
 // Flood fill function
-void	flood_fill(char **map, int x, int y, int *collectibles_found, int *exit_found)
+static void	flood_fill(char **map, int x, int y, int *collectibles_found, int *exit_found)
 {
 	if (x < 0 || y < 0 || !map[y] || !map[y][x] || map[y][x] == '1' || map[y][x] == 'F')
 		return ;
@@ -19,7 +19,7 @@ void	flood_fill(char **map, int x, int y, int *collectibles_found, int *exit_fou
 }
 
 // Duplicate a 2D map
-char	**duplicate_map(char **map, int height)
+static char	**duplicate_map(char **map, int height)
 {
 	char	**copy;
 	int		i;

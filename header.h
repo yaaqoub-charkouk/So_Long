@@ -37,4 +37,10 @@ typedef struct	s_count
 #define KEY_LEFT 123
 #define KEY_RIGHT 124
 
-int check_map_path(char *str);
+int		check_map_path(char *str);
+int		is_map_retungular(char **map);
+int		is_map_enclosed(char **map);
+int 	validate_map_chars(char **map);
+char	**read_map_from_file(char *file);
+int		validate_map(char **map, int map_height, int player_x, int player_y, int collectibles_count);
+int		ft_count_height(char *file);
