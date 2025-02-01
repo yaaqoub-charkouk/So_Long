@@ -31,7 +31,7 @@ static char	**duplicate_map(char **map, int height)
 	i = 0;
 	while (i < height)
 	{
-		copy[i] = ft_strdup(map[i]); //getnextline or libft ??
+		copy[i] = ft_strdup(map[i]); 
 		if (!copy[i])
 		{
 			ft_free_matrix(copy, i);

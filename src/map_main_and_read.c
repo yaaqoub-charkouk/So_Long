@@ -1,5 +1,5 @@
 #include "../header.h"
-
+// until this file a lot of struct variables are initialized while parsing the map 
 size_t	ft_count_height(char *file)
 {
 	size_t height;
@@ -21,7 +21,7 @@ size_t	ft_count_height(char *file)
 }
 
 
-char	**read_map_from_file(char *file, t_game *game) // ::stored the map height to the struct
+char	**read_map_from_file(char *file, t_game *game) // ::store the map height to the struct
 {
 	int		fd;
 	char	**map;

@@ -16,4 +16,40 @@ int	init_game(t_game *game)
 	return (1);
 }
 
+void free_game(t_game *game)
+{
+    int i;
+
+    if (!game)
+        return;
+
+    // Destroy images
+    if (game->p_img)
+        mlx_destroy_image(game->mlx, game->p_img);
+    if (game->background_img)
+        mlx_destroy_image(game->mlx, game->background_img);
+    if (game->wall)
+        mlx_destroy_image(game->mlx, game->wall);
+    if (game->collectibles)
+        mlx_destroy_image(game->mlx, game->collectibles);
+    if (game->exit_img)
+        mlx_destroy_image(game->mlx, game->exit_img);
+
+    // Free the map memory
+    if (game->map)
+		ft_free_matrix(game->map, game->m_height);
+
+	// Destroy the window and MLX instance
+    if (game->win)
+        mlx_destroy_window(game->mlx, game->win);
+    if (game->mlx)
+    {
+        mlx_destroy_display(game->mlx);
+        free(game->mlx);
+    }
+
+    // Exit the program
+    exit(0);
+}
+
 

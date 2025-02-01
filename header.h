@@ -10,8 +10,8 @@
 typedef struct	s_game {
 	void	*mlx;
 	void	*win;
-
-	void	*background_img; // background
+	// background
+	void	*background_img; 
 	int		b_width; // at init_game
 	int		b_height;// at init_game
 	// walls
@@ -23,10 +23,12 @@ typedef struct	s_game {
 	int		e_width;
 	int		e_height;
 	//collectibles
-	void *collectibles; // at init_game
+	void	*collectibles; // at init_game
 	int		c_width;
 	int		c_height;
-	//player
+	int		collected_items;
+	int		total_collectibles;
+	// player
 	void	*p_img; // player
 	int		p_x; // from pam_main_read.c
 	int		p_y; // from pam_main_read.c
@@ -35,7 +37,9 @@ typedef struct	s_game {
 	//map
 	char	**map; // from map_main_read.c
 	int		m_width; // from map_check_1.c
-	size_t		m_height; // from map_main_read.c
+	size_t	m_height; // from map_main_read.c
+	//moves
+	int		moves;
 } t_game; // main structure
 
 typedef struct	s_count
@@ -66,3 +70,4 @@ void	draw_map(t_game *game);
 int		key_handler(int keycode, t_game *game);
 int		close_handler(t_game *game);
 int 	is_file_exists_empty(char *filename);
+void	free_game(t_game *game);
