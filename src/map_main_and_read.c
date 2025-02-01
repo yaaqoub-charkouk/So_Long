@@ -98,12 +98,12 @@ char	**map_main_parse(char *filename, t_game *game)
 
 
 
-int main(void) {
+int main(int ac, char **av)
+{
 	t_game game;
-	char *filename = "../maps/valid/ok1.ber";
 	char **map;
 
-	map = map_main_parse(filename, &game);
+	map = map_main_parse(av[1], &game);
 	// for (int i = 0; map[i] != NULL; i++) {
 	// 	printf("%s\n", map[i]);
 	// }

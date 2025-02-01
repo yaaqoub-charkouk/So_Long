@@ -67,7 +67,7 @@ int	is_map_enclosed(char **map) // check if the map is enclosed by walls 1
 	while (map[height])
 		height++;
 	height--;
-	len = ft_strlen(map[0]) - 2;
+	len = ft_strlen(map[0]) - 1;
 	i = 0;
 	while (i <= len && map[i])
 	{

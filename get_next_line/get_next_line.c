@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:56:19 by ycharkou          #+#    #+#             */
-/*   Updated: 2024/11/20 19:15:20 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/01 15:23:47 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*extract_line(char **accumulation)
 	nl_index = ft_strchr(*accumulation, '\n');
 	if (nl_index != -1)
 	{
-		line = ft_substr(*accumulation, 0, nl_index + 1);
+		line = ft_substr(*accumulation, 0, nl_index);
 		new_accumulation = ft_strdup(*accumulation + nl_index + 1);
 		if (!new_accumulation)
 			new_accumulation = ft_strdup("");
