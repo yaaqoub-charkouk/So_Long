@@ -37,7 +37,7 @@ typedef struct	s_game {
 	//map
 	char	**map; // from map_main_read.c
 	int		m_width; // from map_check_1.c
-	size_t	m_height; // from map_main_read.c
+	int		m_height; // from map_main_read.c
 	//moves
 	int		moves;
 } t_game; // main structure
@@ -62,7 +62,7 @@ int 	is_map_enclosed(char **map);
 int 	validate_map_chars(char **map);
 char	**read_map_from_file(char *file, t_game *game);
 int		validate_map(char **map, int map_height, int player_x, int player_y, int collectibles_count);
-size_t	ft_count_height(char *file);
+int		ft_count_height(char *file);
 char	**map_main_parse(char *filename, t_game *game);
 char	**read_map_from_file(char *file, t_game *game);
 int		init_game(t_game *game);
@@ -71,3 +71,4 @@ int		key_handler(int keycode, t_game *game);
 int		close_handler(t_game *game);
 int 	is_file_exists_empty(char *filename);
 void	free_game(t_game *game);
+void	mov_player(t_game *game, int new_x, int new_y);

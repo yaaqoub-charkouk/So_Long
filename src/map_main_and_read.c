@@ -1,10 +1,10 @@
 #include "../header.h"
 // until this file a lot of struct variables are initialized while parsing the map 
-size_t	ft_count_height(char *file)
+int	ft_count_height(char *file)
 {
-	size_t height;
-	int fd;
-	char *line;
+	int		height;
+	int		fd;
+	char	*line;
 
 	fd = open(file, O_RDONLY); // open
 	height = 0;
@@ -15,7 +15,6 @@ size_t	ft_count_height(char *file)
 		free(line); // free the allocated memory by get_next_line
 		line = get_next_line(fd);
 	}
-	free(line);
 	close(fd); // close
 	return (height);
 }
@@ -25,7 +24,6 @@ char	**read_map_from_file(char *file, t_game *game) // ::store the map height to
 {
 	int		fd;
 	char	**map;
-	char 	*line;
 	int		i;
 
 	game->m_height = ft_count_height(file); // count the height of the map (lines) && do not call it again !
@@ -96,17 +94,3 @@ char	**map_main_parse(char *filename, t_game *game)
 }
 
 
-
-
-int main(int ac, char **av)
-{
-	t_game game;
-	char **map;
-
-	map = map_main_parse(av[1], &game);
-	// for (int i = 0; map[i] != NULL; i++) {
-	// 	printf("%s\n", map[i]);
-	// }
-
-	return 0;
-}

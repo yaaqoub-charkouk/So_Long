@@ -1,4 +1,4 @@
-#include "header.h"
+#include "../header.h"
 
 int	main(int ac, char **av)
 {
@@ -9,11 +9,14 @@ int	main(int ac, char **av)
 		ft_printf("invalid input : %s <map_path.ber> ", av[0]);
 		return (1);
 	}
+	printf("bgjghghgh");
 	game.map = map_main_parse(av[1], &game); // need to be freed later !!!!!!! leak
 	// also get base info and store them to the struct
 	// most of variable in struct are initialized in the function 
+	// printf("%c", game.map[0][0]);
+
 	if (!game.map)
-		return (1);
+		return (free_game(&game), 1);
 	
 	if (!init_game(&game))
 		return (1);
