@@ -79,14 +79,14 @@ char	**map_main_parse(char *filename, t_game *game)
 	int collectibles_count;
 	char **map;
 
-	// if (!check_map_path(filename) || !is_file_exists_empty(filename))
-	// 	return (NULL);
-	// else
-	// {
+	if (!check_map_path(filename) || !is_file_exists_empty(filename))
+		return (NULL);
+	else
+	{
 		map = read_map_from_file(filename, game);
 		if (!map)
 			return (NULL);
-	// }
+	}
 	if (!is_map_retungular(map, game) || !is_map_enclosed(map) || !validate_map_chars(map)) // tha map was readable now yeah !
 		return (NULL);
 	get_player_and_collectibles(map, &(game->p_x), &(game->p_y), &collectibles_count);
