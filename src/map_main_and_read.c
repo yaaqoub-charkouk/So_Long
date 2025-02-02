@@ -47,7 +47,7 @@ char	**read_map_from_file(char *file, t_game *game) // ::store the map height to
 	return (map);
 }
 
-static void	get_player_and_collectibles(char **map, int *p_x, int *p_y, int *collectibles_count)
+void	get_player_and_collectibles(char **map, int *p_x, int *p_y, int *collectibles_count)
 {// this function is to get primary data
 	int i;
 	int j;
@@ -77,14 +77,16 @@ char	**map_main_parse(char *filename, t_game *game)
 	int collectibles_count;
 	char **map;
 
-	if (!check_map_path(filename) || !is_file_exists_empty(filename))
-		return (NULL);
-	else
-	{
+	printf("before check\n");
+	// if (!check_map_path(filename) || !is_file_exists_empty(filename))
+	// 	return (NULL);
+	// else
+	// {
 		map = read_map_from_file(filename, game);
+		// printf("map was read : %c", map[0][0]);
 		if (!map)
 			return (NULL);
-	}
+	// }
 	if (!is_map_retungular(map, game) || !is_map_enclosed(map) || !validate_map_chars(map)) // tha map was readable now yeah !
 		return (NULL);
 	get_player_and_collectibles(map, &(game->p_x), &(game->p_y), &collectibles_count);
@@ -94,3 +96,22 @@ char	**map_main_parse(char *filename, t_game *game)
 }
 
 
+// void print_map(char **map) {
+// 	int i = 0;
+// 	while (map[i]) {
+// 		printf("%s\n", map[i]);
+// 		i++;
+// 	}
+// }
+
+// int main(int ac, char **av) {
+// 	char **map;
+// 	t_game game;
+
+// 	map = map_main_parse(av[1], &game);
+// 	// print_map(map);
+
+// 	// Rest of the code
+
+// 	return 0;
+// }

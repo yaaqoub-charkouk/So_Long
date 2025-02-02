@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:02:46 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/02 18:42:28 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/02 19:29:47 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,30 @@ int	init_game(t_game *game)
 			"../textures/collect.xpm", &game->c_width, &game->c_height);
 	game->exit_img = mlx_xpm_file_to_image(game->mlx,
 			"../textures/exit.xpm", &game->e_width, &game->e_height);
-	if (!game->win || !game->p_img || !game->background_img
-		|| !game->wall || !game->collectibles || !game->exit_img)
-		return (ft_printf("Init error: failed to init game \n"),
-			free_game(game), 0);
+	// if (!game->win || !game->p_img || !game->background_img
+	// 	|| !game->wall || !game->collectibles || !game->exit_img)
+	// 	return (ft_printf("Init error: failed to init game \n"),
+	// 		free_game(game), 0);
+	if (!game->win) {
+    ft_printf("Error: game->win is NULL\n");
+	}
+	if (!game->p_img) {
+		ft_printf("Error: game->p_img is NULL\n");
+	}
+	if (!game->background_img) {
+		ft_printf("Error: game->background_img is NULL\n");
+	}
+	if (!game->wall) {
+		ft_printf("Error: game->wall is NULL\n");
+	}
+	if (!game->collectibles) {
+		ft_printf("Error: game->collectibles is NULL\n");
+	}
+	if (!game->exit_img) {
+		ft_printf("Error: game->exit_img is NULL\n");
+	}
+	
+	// init_vars(game); // initialize counters 
 	return (1);
 }
 
