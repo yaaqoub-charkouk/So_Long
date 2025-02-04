@@ -1,24 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_flood_fill.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/03 18:03:15 by ycharkou          #+#    #+#             */
+/*   Updated: 2025/02/03 18:23:34 by ycharkou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header.h"
 
-// check if all collectibles and the exit are reachable .
-
-// Flood fill function
-static void	flood_fill(char **map, int x, int y, int *collectibles_found, int *exit_found)
+static void	flood_fill(char **map, int x, int y, t_flood *f)
 {
-	if (x < 0 || y < 0 || !map[y] || !map[y][x] || map[y][x] == '1' || map[y][x] == 'F')
+	if (x < 0 || y < 0 || !map[y] || !map[y][x]
+		|| map[y][x] == '1' || map[y][x] == 'F')
 		return ;
 	if (map[y][x] == 'C')
-		(*collectibles_found)++;
+		f->c_found++;
 	if (map[y][x] == 'E')
-		*exit_found = 1;
+		f->e_found = 1;
 	map[y][x] = 'F';
-	flood_fill(map, x + 1, y, collectibles_found, exit_found); // Right
-	flood_fill(map, x - 1, y, collectibles_found, exit_found); // Left
-	flood_fill(map, x, y + 1, collectibles_found, exit_found); // Down
-	flood_fill(map, x, y - 1, collectibles_found, exit_found); // Up
+	flood_fill(map, x + 1, y, f);
+	flood_fill(map, x - 1, y, f);
+	flood_fill(map, x, y + 1, f);
+	flood_fill(map, x, y - 1, f);
 }
 
-// Duplicate a 2D map
 static char	**duplicate_map(char **map, int height)
 {
 	char	**copy;
@@ -42,26 +51,24 @@ static char	**duplicate_map(char **map, int height)
 	return (copy);
 }
 
-// Map validation function
-int	validate_map(char **map, int map_height, int player_x, int player_y, int collectibles_count)
+int	validate_map(char **map, t_game *game)
 {
-	int		collectibles_found;
-	int		exit_found;
+	t_flood	flood;
 	char	**map_copy;
 
-	collectibles_found = 0;
-	exit_found = 0;
-	map_copy = duplicate_map(map, map_height);
+	flood.c_found = 0;
+	flood.e_found = 0;
+	map_copy = duplicate_map(map, game->m_height);
 	if (!map_copy)
 		return (0);
-	flood_fill(map_copy, player_x, player_y, &collectibles_found, &exit_found);
-	ft_free_matrix(map_copy, map_height);
-	if (collectibles_found != collectibles_count) // check if all collectibles are reachable
+	flood_fill(map_copy, game->p_x, game->p_y, &flood);
+	ft_free_matrix(map_copy, game->m_height);
+	if (flood.c_found != game->total_collectibles)
 	{
 		ft_printf("Map error: Not all collectibles are reachable.\n");
 		return (0);
 	}
-	if (!exit_found) //check if the exit is reachable 
+	if (!flood.e_found)
 	{
 		ft_printf("Map error: The exit is not reachable.\n");
 		return (0);

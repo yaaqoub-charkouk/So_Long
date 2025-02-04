@@ -1,10 +1,7 @@
-# Compiler
 CC = cc
-
-# Compiler flags
+LIB = /Users/ycharkou/
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
-MLX = libmlx.a -lmlx -framework openGL -framework AppKit 
-# Source files
+MLX = -L$(LIB) -lmlx -framework OpenGL -framework AppKit 
 SRCS = ft_printf/ft_printf.c \
 	libft/ft_strncmp.c \
 	ft_printf/ft_printf_utils.c \

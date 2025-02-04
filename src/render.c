@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:35:38 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/02 18:08:07 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:33:43 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ void	draw_map(t_game *game)
 	int	y;
 
 	y = 0;
-	mlx_put_image_to_window(game->mlx,
-		game->win, game->background_img, 0, 0);
 	mlx_put_image_to_window(game->mlx,
 		game->win, game->p_img, game->p_x * T_SIZE, game->p_y * T_SIZE);
 	while (y < game->m_height)

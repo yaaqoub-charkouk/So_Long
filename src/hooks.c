@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hooks.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/03 16:55:01 by ycharkou          #+#    #+#             */
+/*   Updated: 2025/02/03 16:55:22 by ycharkou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header.h"
 
-int key_handler(int keycode, t_game *game)
+int	key_handler(int keycode, t_game *game)
 {
-	int new_x;
-	int new_y;
+	int	new_x;
+	int	new_y;
 
 	new_x = game->p_x;
 	new_y = game->p_y;
@@ -21,13 +33,12 @@ int key_handler(int keycode, t_game *game)
 		new_x++;
 	else if (keycode == KEY_LEFT)
 		new_x--;
-	// mov the player if not a wall
 	mov_player(game, new_x, new_y);
-	return 0;
+	return (0);
 }
 
 int	close_handler(t_game *game)
 {
-	free_game(game); // free the game 
+	free_game(game);
 	exit(EXIT_SUCCESS);
 }
