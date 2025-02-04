@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:21:20 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/03 17:52:38 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:35:46 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ int	is_map_retungular(char **map, t_game *game)
 	return (1);
 }
 
-int	is_map_enclosed(char **map)
+int is_map_enclosed(char **map)
 {
-	int	i;
-	int	len;
-	int	height;
+	int i;
+	int len;
+	int height;
 
 	height = 0;
 	while (map[height])
@@ -69,9 +69,9 @@ int	is_map_enclosed(char **map)
 	height--;
 	len = ft_strlen(map[0]) - 1;
 	i = 0;
-	while (i <= len && map[i])
+	while (i <= len)
 	{
-		if (map[0][i] != '1' || map[height][i] != '1')
+		if (map[height][i] != '1' || map[0][i] != '1')
 			return (ft_printf("Map error: Map is not enclosed T, B\n"), 0);
 		i++;
 	}

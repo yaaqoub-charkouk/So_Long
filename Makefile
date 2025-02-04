@@ -1,6 +1,6 @@
 CC = cc
 LIB = /Users/ycharkou/
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror 
 MLX = -L$(LIB) -lmlx -framework OpenGL -framework AppKit 
 SRCS = ft_printf/ft_printf.c \
 	libft/ft_strncmp.c \
@@ -26,10 +26,8 @@ SRCS = ft_printf/ft_printf.c \
 	src/render.c \
 	libft/ft_strlen.c
 
-# Object files
 OBJS = $(SRCS:.c=.o)
 
-# Target executable
 TARGET = so_long
 
 .PHONY: all clean fclean re
@@ -39,7 +37,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $(MLX) -o $@ $^
 
-%.o: %.c
+%.o: %.c header.h libft/libft.h get_next_line/get_next_line.h ft_printf/ft_printf.h 
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:

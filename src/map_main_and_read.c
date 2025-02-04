@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:26:36 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/03 18:31:26 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 10:23:49 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_file_empty_and_height_count(char *file)
 	if (fd < 0)
 	{
 		ft_printf("Error: Map file does not exist or cannot be opened\n");
-		exit(EXIT_FAILURE);
+		return (0);
 	}
 	line = get_next_line(fd);
 	if (!line)
@@ -107,10 +107,10 @@ char	**map_main_parse(char *filename, t_game *game)
 	}
 	if (!is_map_retungular(map, game)
 		|| !is_map_enclosed(map) || !validate_map_chars(map))
-		return (NULL);
+		return (ft_free_matrix(map, game->m_height), NULL);
 	get_p_and_c(map, &(game->p_x), &(game->p_y), &game->total_collectibles);
 	if (!validate_map(map, game))
-		return (NULL);
+		return (ft_free_matrix(map, game->m_height), NULL);
 	game->collected_items = 0;
 	return (map);
 }
