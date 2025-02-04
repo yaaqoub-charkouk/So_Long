@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yaaqoub <yaaqoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:58:58 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 17:29:04 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 22:00:20 by yaaqoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ void	mov_player(t_game *game, int new_x, int new_y)
 			draw_map(game);
 			free_game(game);
 			exit(EXIT_SUCCESS);
+		}
+		if (next_tile == 'G')
+		{
+			ft_printf("hahaha qatlowak\n");
+			exit(1);
 		}
 		game->p_x = new_x;
 		game->p_y = new_y;

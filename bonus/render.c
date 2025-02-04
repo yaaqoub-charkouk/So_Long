@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yaaqoub <yaaqoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:35:38 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 17:49:30 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 21:59:00 by yaaqoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void	put_image_to_window(t_game *game, int x, int y)
 	else if (game->map[y][x] == 'E')
 		mlx_put_image_to_window(game->mlx,
 			game->win, game->exit_img, x * T_SIZE, y * T_SIZE);
+	else if (game->map[y][x] == 'G')
+		mlx_put_image_to_window(game->mlx,
+			game->win, game->enemy, x * T_SIZE, y * T_SIZE);
 }
 
 void	draw_map(t_game *game)

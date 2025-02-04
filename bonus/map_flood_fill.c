@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_flood_fill.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yaaqoub <yaaqoub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:03:15 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 16:24:09 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 22:11:38 by yaaqoub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	flood_fill(char **map, int x, int y, t_flood *f)
 {
 	if (x < 0 || y < 0 || !map[y] || !map[y][x]
-		|| map[y][x] == '1' || map[y][x] == 'F')
+		|| map[y][x] == '1' || map[y][x] == 'F' || map[y][x] == 'G')
 		return ;
 	if (map[y][x] == 'C')
 		f->c_found++;
@@ -32,7 +32,7 @@ static char	**duplicate_map(char **map, int height)
 {
 	char	**copy;
 	int		i;
-
+	
 	copy = malloc(sizeof(char *) * (height + 1));
 	if (!copy)
 		return (NULL);
@@ -40,7 +40,7 @@ static char	**duplicate_map(char **map, int height)
 	i = 0;
 	while (i < height)
 	{
-		copy[i] = ft_strdup(map[i]); 
+		copy[i] = ft_strdup(map[i]);
 		if (!copy[i])
 		{
 			ft_free_matrix(copy, i);
