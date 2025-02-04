@@ -6,11 +6,11 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:35:38 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/03 18:33:43 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:49:30 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "header_bonus.h"
 
 void	get_player_position(t_game *game)
 {
@@ -54,8 +54,7 @@ void	draw_map(t_game *game)
 	int	y;
 
 	y = 0;
-	mlx_put_image_to_window(game->mlx,
-		game->win, game->p_img, game->p_x * T_SIZE, game->p_y * T_SIZE);
+	put_player_image(game);
 	while (y < game->m_height)
 	{
 		x = 0;
@@ -66,4 +65,6 @@ void	draw_map(t_game *game)
 		}
 		y++;
 	}
+	mlx_string_put(game->mlx, game->win, 10, 10, 0x00FFFFFF, "Moves: ");
+	mlx_string_put(game->mlx, game->win, 70, 10, 0x00FFFFFF, ft_itoa(game->moves));
 }

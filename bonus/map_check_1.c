@@ -6,11 +6,11 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:21:20 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 13:35:46 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:23:52 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "header_bonus.h"
 
 int	check_map_path(char *filename)
 {

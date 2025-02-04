@@ -6,11 +6,11 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:26:36 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 10:23:49 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:24:21 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "header_bonus.h"
 
 int	is_file_empty_and_height_count(char *file)
 {

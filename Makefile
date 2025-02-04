@@ -3,47 +3,65 @@ LIB = /Users/ycharkou/
 CFLAGS = -Wall -Wextra -Werror 
 MLX = -L$(LIB) -lmlx -framework OpenGL -framework AppKit 
 SRCS = ft_printf/ft_printf.c \
-	libft/ft_strncmp.c \
 	ft_printf/ft_printf_utils.c \
-	libft/ft_strnstr.c \
 	get_next_line/get_next_line.c \
-	src/game.c \
 	get_next_line/get_next_line_utils.c \
-	src/hooks.c \
+	libft/ft_strncmp.c \
+	libft/ft_strnstr.c \
 	libft/ft_atoi.c \
-	src/main.c \
 	libft/ft_bzero.c \
-	src/map_check_1.c \
 	libft/ft_calloc.c \
-	src/map_check_2.c \
 	libft/ft_itoa.c \
-	src/map_flood_fill.c \
 	libft/ft_split.c \
-	src/map_main_and_read.c \
 	libft/ft_strlcat.c \
-	src/player.c \
 	libft/ft_strlcpy.c \
-	src/render.c \
 	libft/ft_strlen.c
+MANDATORY = src/hooks.c \
+	src/main.c \
+	src/map_check_1.c \
+	src/map_check_2.c \
+	src/map_flood_fill.c \
+	src/map_main_and_read.c \
+	src/player.c \
+	src/render.c \
+	src/game.c 
+BONUS = bonus/hooks.c \
+	bonus/main.c \
+	bonus/map_check_1.c \
+	bonus/map_check_2.c \
+	bonus/map_flood_fill.c \
+	bonus/map_main_and_read.c \
+	bonus/player.c \
+	bonus/render.c \
+	bonus/game.c \
 
 OBJS = $(SRCS:.c=.o)
+MOBJS = $(MANDATORY:.c=.o)
+BOBJS = $(BONUS:.c=.o)
 
 TARGET = so_long
+TARGET_BNS = so_long_bonus
 
-.PHONY: all clean fclean re
+HEADERS = header.h libft/libft.h get_next_line/get_next_line.h ft_printf/ft_printf.h bonus/header_bonus.h
+.PHONY: all clean fclean re bonus mandatory
 
-all: $(TARGET)
+mandatory: $(TARGET)
+bonus : $(TARGET_BNS)
+all: $(TARGET) $(TARGET_BNS)
 
-$(TARGET): $(OBJS)
+$(TARGET): $(MOBJS) $(OBJS)
 	$(CC) $(CFLAGS) $(MLX) -o $@ $^
 
-%.o: %.c header.h libft/libft.h get_next_line/get_next_line.h ft_printf/ft_printf.h 
+$(TARGET_BNS) : $(BOBJS) $(OBJS)
+	$(CC) $(CFLAGS) $(MLX) -o $@ $^
+
+%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(MOBJS) $(BOBJS)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(TARGET) $(TARGET_BNS)
 
 re: fclean all

@@ -6,11 +6,35 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:55:01 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/03 16:55:22 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:03:29 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "header_bonus.h"
+
+void	move_decision(int keycode, int *new_x, int *new_y, t_game *game)
+{
+	if (keycode == KEY_UP)
+	{
+		(*new_y)--;
+		game->p_direction = 'u';
+	}
+	else if (keycode == KEY_DOWN)
+	{
+		(*new_y)++;
+		game->p_direction = 'd';
+	}
+	else if (keycode == KEY_RIGHT)
+	{
+		(*new_x)++;
+		game->p_direction = 'r';
+	}
+	else if (keycode == KEY_LEFT)
+	{
+		(*new_x)--;
+		game->p_direction = 'l';
+	}
+}
 
 int	key_handler(int keycode, t_game *game)
 {
@@ -25,14 +49,8 @@ int	key_handler(int keycode, t_game *game)
 		free_game(game);
 		exit(0);
 	}
-	else if (keycode == KEY_UP)
-		new_y--;
-	else if (keycode == KEY_DOWN)
-		new_y++;
-	else if (keycode == KEY_RIGHT)
-		new_x++;
-	else if (keycode == KEY_LEFT)
-		new_x--;
+	else
+		move_decision(keycode, &new_x, &new_y, game);
 	mov_player(game, new_x, new_y);
 	return (0);
 }
@@ -41,4 +59,4 @@ int	close_handler(t_game *game)
 {
 	free_game(game);
 	exit(EXIT_SUCCESS);
-}
+}	

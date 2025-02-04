@@ -6,11 +6,11 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:03:15 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/03 18:23:34 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:24:09 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "header_bonus.h"
 
 static void	flood_fill(char **map, int x, int y, t_flood *f)
 {

@@ -6,11 +6,11 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:58:58 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 10:59:30 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:29:04 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "header_bonus.h"
 
 void	mov_player(t_game *game, int new_x, int new_y)
 {
@@ -39,4 +39,21 @@ void	mov_player(t_game *game, int new_x, int new_y)
 		draw_map(game);
 		ft_printf("Moves: %d\n", game->moves);
 	}
+	draw_map(game);
+}
+
+void	put_player_image(t_game *game)
+{
+	if (game->p_direction == 'u')
+		mlx_put_image_to_window(game->mlx,
+			game->win, game->p_u_img, game->p_x * T_SIZE, game->p_y * T_SIZE);
+	else if (game->p_direction == 'd')
+		mlx_put_image_to_window(game->mlx,
+			game->win, game->p_d_img, game->p_x * T_SIZE, game->p_y * T_SIZE);
+	else if (game->p_direction == 'l')
+		mlx_put_image_to_window(game->mlx,
+			game->win, game->p_l_img, game->p_x * T_SIZE, game->p_y * T_SIZE);
+	else if (game->p_direction == 'r')
+		mlx_put_image_to_window(game->mlx,
+			game->win, game->p_r_img, game->p_x * T_SIZE, game->p_y * T_SIZE);
 }

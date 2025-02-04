@@ -6,11 +6,11 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:54:25 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/03 17:55:39 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:52:06 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "header_bonus.h"
 
 static void	ft_init_vars(t_count *count, int *i)
 {
@@ -28,7 +28,7 @@ static int	map_chars_counter(char c, t_count *counter)
 		counter->p_count++;
 	else if (c == 'C')
 		counter->c_count++;
-	else if (c != '0' && c != '1')
+	else if (c != '0' && c != '1' && c != 'G')
 		return (ft_printf("Map error: invalid char '%c' \n", c), 0);
 	return (1);
 }

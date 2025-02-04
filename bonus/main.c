@@ -6,11 +6,11 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:59:12 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 10:28:01 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:03:21 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header.h"
+#include "header_bonus.h"
 
 int	main(int ac, char **av)
 {
@@ -26,10 +26,10 @@ int	main(int ac, char **av)
 		return (free_game(&game), 1);
 	if (!init_game(&game))
 		return (free_game(&game), 1);
+	game.p_direction = 'r';
 	draw_map(&game);
 	mlx_key_hook(game.win, key_handler, &game);
 	mlx_hook(game.win, 17, 0, close_handler, &game);
 	mlx_loop(game.mlx);
-	system("leaks -q so_long");
 	return (free_game(&game), 0);
 }

@@ -6,14 +6,12 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:02:46 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/03 16:53:59 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:58:40 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-	// game->background_img = mlx_xpm_file_to_image(game->mlx,
-	// 		"/textures/background.xpm", &game->b_width, &game->b_height);
 int	init_game(t_game *game)
 {
 	game->mlx = mlx_init();
