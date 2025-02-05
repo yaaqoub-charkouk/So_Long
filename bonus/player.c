@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaaqoub <yaaqoub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 10:58:58 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 22:00:20 by yaaqoub          ###   ########.fr       */
+/*   Updated: 2025/02/05 10:23:52 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header_bonus.h"
+
+void	exit_success(t_game *game)
+{
+	ft_printf("Congratulations! You won!\n");
+	draw_map(game);
+	free_game(game);
+	exit(EXIT_SUCCESS);
+}
+
+void	exit_failure(t_game *game)
+{
+	ft_printf("haha qatlowak.\n");
+	draw_map(game);
+	free_game(game);
+	exit(EXIT_FAILURE);
+}
 
 void	mov_player(t_game *game, int new_x, int new_y)
 {
@@ -26,17 +42,9 @@ void	mov_player(t_game *game, int new_x, int new_y)
 		}
 		if (next_tile == 'E' 
 			&& game->collected_items == game->total_collectibles)
-		{
-			ft_printf("Congratulations! You won!\n");
-			draw_map(game);
-			free_game(game);
-			exit(EXIT_SUCCESS);
-		}
+			exit_success(game);
 		if (next_tile == 'G')
-		{
-			ft_printf("hahaha qatlowak\n");
-			exit(1);
-		}
+			exit_failure(game);
 		game->p_x = new_x;
 		game->p_y = new_y;
 		game->moves++;

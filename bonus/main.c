@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:59:12 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 17:03:21 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:43:26 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int ac, char **av)
 	if (ac != 2)
 	{
 		ft_printf("invalid input : %s <map_path.ber> ", av[0]);
+		system("leaks -q so_long");
 		return (1);
 	}
 	game.map = map_main_parse(av[1], &game);
@@ -30,6 +31,8 @@ int	main(int ac, char **av)
 	draw_map(&game);
 	mlx_key_hook(game.win, key_handler, &game);
 	mlx_hook(game.win, 17, 0, close_handler, &game);
+	mlx_loop_hook(game.mlx, enemy_loop, &game);
 	mlx_loop(game.mlx);
+	
 	return (free_game(&game), 0);
 }

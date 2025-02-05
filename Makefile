@@ -34,6 +34,8 @@ BONUS = bonus/hooks.c \
 	bonus/player.c \
 	bonus/render.c \
 	bonus/game.c \
+	bonus/enemy_test.c \
+	bonus/enemy_1.c \
 
 OBJS = $(SRCS:.c=.o)
 MOBJS = $(MANDATORY:.c=.o)

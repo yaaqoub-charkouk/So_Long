@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:01:17 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 17:03:52 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:17:43 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 #include "../libft/libft.h"
 #include "../get_next_line/get_next_line.h"
 #include "../ft_printf/ft_printf.h"
+
+typedef struct s_enemy
+{
+	int	x;
+	int	y;
+}	t_enemy;
 
 typedef struct s_game
 {
@@ -42,6 +48,8 @@ typedef struct s_game
 	void	*p_u_img;
 	void	*p_d_img;
 	void	*enemy;
+	int		e_x;
+	int		e_y;
 	int		p_x;
 	int		p_y;
 	char	p_direction;
@@ -51,7 +59,9 @@ typedef struct s_game
 	int		m_width;
 	int		m_height;
 	int		moves;
-} t_game;
+	int		num_enemies;
+	t_enemy	*enemies;
+}	t_game;
 
 typedef struct s_count
 {
@@ -89,3 +99,8 @@ int		close_handler(t_game *game);
 void	free_game(t_game *game);
 void	mov_player(t_game *game, int new_x, int new_y);
 void	put_player_image(t_game *game);
+int		enemy_loop(t_game *game);
+void	get_enemy_pos(t_game *game);
+void	put_enemy_image(t_game *game);
+void	exit_failure(t_game *game);
+void	calculate_enemy_move(t_game *game, int *dx, int *dy, int i);

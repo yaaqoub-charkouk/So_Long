@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:21:20 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 16:23:52 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:33:12 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ int	is_map_retungular(char **map, t_game *game)
 	return (1);
 }
 
-int is_map_enclosed(char **map)
+int	is_map_enclosed(char **map)
 {
-	int i;
-	int len;
-	int height;
+	int	i;
+	int	len;
+	int	height;
 
 	height = 0;
 	while (map[height])

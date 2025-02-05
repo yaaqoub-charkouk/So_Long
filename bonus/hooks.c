@@ -6,7 +6,7 @@
 /*   By: ycharkou <ycharkou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:55:01 by ycharkou          #+#    #+#             */
-/*   Updated: 2025/02/04 17:03:29 by ycharkou         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:32:46 by ycharkou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,4 @@ int	close_handler(t_game *game)
 {
 	free_game(game);
 	exit(EXIT_SUCCESS);
-}	
+}
