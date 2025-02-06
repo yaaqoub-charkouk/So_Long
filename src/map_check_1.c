@@ -19,7 +19,7 @@ int	check_map_path(char *filename)
 
 	if (ft_strchr(filename, '/') < 0) 
 	{
-		if (ft_strlen(filename) < 4 || ft_strncmp(filename 
+		if (ft_strlen(filename) <= 4 || ft_strncmp(filename 
 				+ ft_strlen(filename) - 4, ".ber", 4) != 0)
 			return (ft_printf("Map error: invalid path "), 0);
 		return (1);
@@ -30,7 +30,7 @@ int	check_map_path(char *filename)
 	i = 0;
 	while (split[i])
 		i++;
-	if (i < 2 || ft_strlen(split[i - 1]) < 4 || ft_strncmp(split[i - 1] 
+	if (i < 2 || ft_strlen(split[i - 1]) <= 4 || ft_strncmp(split[i - 1] 
 			+ ft_strlen(split[i - 1]) - 4, ".ber", 4) != 0)
 	{
 		ft_free_matrix(split, i);
