@@ -33,7 +33,8 @@ int	key_handler(int keycode, t_game *game)
 		new_x++;
 	else if (keycode == KEY_LEFT)
 		new_x--;
-	mov_player(game, new_x, new_y);
+	if (game->p_x != new_x || game->p_y != new_y)
+		mov_player(game, new_x, new_y);
 	return (0);
 }
 
