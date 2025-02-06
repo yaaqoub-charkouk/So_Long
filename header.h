@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include </Users/ycharkou/mlx.h>
-#include <stdio.h>
-#include <stddef.h>
-#include <stdlib.h>
+#include "mlx.h"
 #include <fcntl.h>
 #include "libft/libft.h"
 #include "get_next_line/get_next_line.h"
