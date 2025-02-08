@@ -39,7 +39,13 @@ void	move_enemies(t_game *game)
 	int	i;
 	int	dx;
 	int	dy;
+	static int	delay = 0;
 
+	if (delay < 200)
+	{
+		delay++;
+		return ;
+	}
 	i = 0;
 	while (i < game->num_enemies)
 	{
